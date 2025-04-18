@@ -29,6 +29,7 @@ public class Track {
     @Column(name = "NumLaps")
     private Integer numLaps;
 
+    // Constructor rỗng
     public Track() {
     }
 
