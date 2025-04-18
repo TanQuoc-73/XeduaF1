@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.backend.model.Team;
+import com.example.backend.model.Track;
 import com.example.backend.model.Driver;
 import com.example.backend.repository.DriverRepository;
 import com.example.backend.repository.TeamRepository;
+import com.example.backend.repository.TrackRepository;
 
 
 
@@ -22,6 +24,7 @@ public class Maincontroller {
     @Autowired
     private TeamRepository teamRepository;
     private DriverRepository driverRepository;
+    private TrackRepository trackRepository;
 
     @GetMapping("/login")
     public String Log(){
@@ -40,6 +43,10 @@ public class Maincontroller {
     public List<Driver> getAllDrivers(){
         return driverRepository.findAll();
     }
-   
+
+    @GetMapping("/tracks")
+    public List<Track> getAllTracks() {
+        return trackRepository.findAll();
+    }
     
 }
