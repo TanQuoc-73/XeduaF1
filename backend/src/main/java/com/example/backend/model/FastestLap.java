@@ -26,10 +26,10 @@ public class FastestLap {
     @JoinColumn(name = "DriverID")
     private Driver driver;
 
-    @Column(name = "LapTime")
+    @Column(name = "laptime")
     private LocalTime lapTime;
 
-    @Column(name = "LapNumber")
+    @Column(name = "lapnumber")
     private Integer lapNumber;
 
     public FastestLap() {

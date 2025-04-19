@@ -15,16 +15,16 @@ public class Team {
     @Column(name = "TeamID")
     private Integer teamId;
 
-    @Column(name = "TeamName", nullable = false, length = 100)
+    @Column(name = "teamname", nullable = false, length = 100)
     private String teamName;
 
-    @Column(name = "BaseLocation", length = 100)
+    @Column(name = "baselocation", length = 100)
     private String baseLocation;
 
-    @Column(name = "NumChampTitles")
+    @Column(name = "numchamptitles")
     private Integer numChampTitles;
 
-    @Column(name = "TotalPoints")
+    @Column(name = "totalpoints")
     private Integer totalPoints;
 
     public Team() {

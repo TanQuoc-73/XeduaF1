@@ -25,10 +25,10 @@ public class RaceResult {
     @JoinColumn(name = "DriverID")
     private Driver driver;
 
-    @Column(name = "Position")
+    @Column(name = "position")
     private Integer position;
 
-    @Column(name = "Points")
+    @Column(name = "points")
     private Integer points;
 
     public RaceResult() {

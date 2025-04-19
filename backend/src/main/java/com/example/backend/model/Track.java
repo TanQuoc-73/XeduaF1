@@ -17,16 +17,16 @@ public class Track {
     @Column(name = "TrackID")
     private Integer trackId;
 
-    @Column(name = "TrackName", nullable = false, length = 100)
+    @Column(name = "trackname", nullable = false, length = 100)
     private String trackName;
 
-    @Column(name = "Location", length = 100)
+    @Column(name = "location", length = 100)
     private String location;
 
-    @Column(name = "TrackLength")
+    @Column(name = "trackLength")
     private BigDecimal trackLength;
 
-    @Column(name = "NumLaps")
+    @Column(name = "numLaps")
     private Integer numLaps;
 
     // Constructor rỗng

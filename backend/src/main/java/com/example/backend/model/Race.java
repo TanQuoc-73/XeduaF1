@@ -22,13 +22,13 @@ public class Race {
     @JoinColumn(name = "TrackID")
     private Track track;
 
-    @Column(name = "RaceName", nullable = false, length = 100)
+    @Column(name = "racename", nullable = false, length = 100)
     private String raceName;
 
-    @Column(name = "RaceDate")
+    @Column(name = "racedate")
     private LocalDate raceDate;
 
-    @Column(name = "Season")
+    @Column(name = "season")
     private Integer season;
 
     public Race() {

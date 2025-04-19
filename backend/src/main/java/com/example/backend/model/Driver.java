@@ -22,16 +22,16 @@ public class Driver {
     @JoinColumn(name = "TeamID")
     private Team team;
 
-    @Column(name = "DriverName", nullable = false, length = 100)
+    @Column(name = "drivername", nullable = false, length = 100)
     private String driverName;
 
-    @Column(name = "Nationality", length = 50)
+    @Column(name = "nationality", length = 50)
     private String nationality;
 
-    @Column(name = "BirthDate")
+    @Column(name = "birthdate")
     private LocalDate birthDate;
 
-    @Column(name = "DriverPoints")
+    @Column(name = "driverpoints")
     private Integer driverPoints;
 
     public Driver() {

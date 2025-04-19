@@ -23,13 +23,13 @@ public class Schedule {
     @JoinColumn(name = "RaceID")
     private Race race;
 
-    @Column(name = "EventName", nullable = false, length = 100)
+    @Column(name = "eventname", nullable = false, length = 100)
     private String eventName;
 
-    @Column(name = "EventDate")
+    @Column(name = "eventdate")
     private LocalDate eventDate;
 
-    @Column(name = "EventTime")
+    @Column(name = "eventtime")
     private LocalTime eventTime;
 
     public Schedule() {
