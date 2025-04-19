@@ -1,16 +1,15 @@
-// app/team/page.js
 import axios from 'axios';
 import { NavBar } from '@/components/NavBar';
 import { Menu } from '@/components/Menu';
 import { Footer } from '@/components/Footer';
 
-export default async function Team() {
+export default async function Team() {        //async: để sử dụng await: hàm bất đồng bộ để k phải chờ dòng chính khi đợi dữ liệu api backend
   let teams = [];
   let error = null;
 
   // Fetch dữ liệu từ backend
   try {
-    const response = await axios.get('http://localhost:8080/api/teams');
+    const response = await axios.get('http://localhost:8080/api/teams');      //axios để gọi api của backend      await: đợi kết quả api backend trả về mà k chặn dòng chínhchính
     teams = response.data;
   } catch (err) {
     error = err.message;
@@ -20,6 +19,8 @@ export default async function Team() {
     <div className="bg-gray-100 min-h-screen">
       <NavBar />
       <Menu />
+
+      
       <div className="flex flex-col items-center py-10 h-screen bg-red-800">
         <h1 className="text-3xl font-bold mb-6">Danh sách đội đua</h1>
         {error && <p className="text-red-500">Lỗi: {error}</p>}
