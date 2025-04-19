@@ -15,6 +15,7 @@ import com.example.backend.repository.ScheduleRepository;
 import com.example.backend.repository.TeamRepository;
 import com.example.backend.repository.TrackRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,6 +24,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "http://localhost:3000") // Cho phép Next.js truy cập
 public class Maincontroller {
 
     @Autowired
@@ -58,7 +60,10 @@ public class Maincontroller {
 
     @GetMapping("/teams")
     public List<Team> getAllTeams() {
-        return teamRepository.findAll();
+        List<Team> teams = teamRepository.findAll();
+        System.out.println("Teams fetched: " + teams);
+        return teams;
+    
     }
 
     @GetMapping("/drivers")
