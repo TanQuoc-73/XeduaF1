@@ -16,6 +16,7 @@ export default function AuthModal({ isOpen, onClose }) {
             <h2 className="text-2xl font-bold mb-4 text-black w-200" >
                 {isLogin ? "Đăng nhập" : "Đăng ký"}
             </h2>
+            {/*Close Modal*/}
             <button
                 onClick={onClose}
                 className="ml-10mt-2 text-black hover:text-black cursor:pointer"> 
