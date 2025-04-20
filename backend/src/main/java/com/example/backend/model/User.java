@@ -90,8 +90,8 @@ public class User {
     public Date getcreate_at(){
         return createat;
     }
-    public void setcreate_at(Date creatat){
-        this.createat =creatat;
+    public void setcreate_at(Date createat){
+        this.createat = createat;
     }
 
 }
