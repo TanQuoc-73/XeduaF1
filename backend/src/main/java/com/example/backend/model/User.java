@@ -17,16 +17,16 @@ public class User {
     @Column(name = "UserID")
     private Integer userId;
 
-    @Column(name = "UserName")
+    @Column(name = "username")
     private String userName;
 
-    @Column(name = "PassWord")
+    @Column(name = "password")
     private String passWord;
 
-    @Column(name = "FirstName")
+    @Column(name = "firstname")
     private String firstName;
 
-    @Column(name = "LastName")
+    @Column(name = "lastname")
     private String lastName;
 
     @Column(name = "Role")
@@ -76,7 +76,7 @@ public class User {
         this.firstName=firstName;
     }
     public String getLastName(){
-        return firstName;
+        return lastName;
     }
     public void setLastName(String lastName){
         this.lastName=lastName;
