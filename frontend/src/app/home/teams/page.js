@@ -9,7 +9,7 @@ export default async function Team() {        //async: để sử dụng await: 
 
   // Fetch dữ liệu từ backend
   try {
-    const response = await axios.get('http://localhost:8080/api/teams');      //axios để gọi api của backend      await: đợi kết quả api backend trả về mà k chặn dòng chínhchính
+    const response = await axios.get('http://localhost:8080/api/teams');      //axios để gọi api của backend      await: đợi kết quả api backend trả về mà k chặn dòng chính
     teams = response.data;
   } catch (err) {
     error = err.message;

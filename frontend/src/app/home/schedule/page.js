@@ -21,7 +21,9 @@ export default async function Schedule() {
             <NavBar/>
             <Menu/>
             <div className='flex flex-col bg-white justify-center items-center h-screen w-screen'>
-                <h1 className="grid center grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 text-black">Danh sách đường đua</h1>
+                <h1 className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 text-black">
+                  Danh sách đường đua
+                </h1>
             </div>
             <Footer/>
         </div>

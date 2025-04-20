@@ -1,6 +1,14 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
+
+import AuthModal from "./AuthModal";
 
 export const NavBar = () => {
+
+
+
     return (
         <div className="flex justify-between items-center h-25 w-screen text-white bg-gradient-to-r from-red-950 to-red-800">
             <h1 className="text-2xl font-bold ml-8">
@@ -25,8 +33,15 @@ export const NavBar = () => {
             </ul>
 
             <ul className="flex mr-10">
-                <button className="cursor-pointer bg-red-900 hover:scale-105 active:scale-95 p-2.5 rounded-lg">Đăng nhập</button>
+
+                <button
+                className="cursor-pointer bg-red-900 hover:scale-105 active:scale-95 p-2.5 rounded-lg">Đăng nhập</button>
             </ul>
+            
+            
+
+
+
         </div>
     );
 }
