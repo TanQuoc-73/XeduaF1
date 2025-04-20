@@ -7,6 +7,7 @@ import com.example.backend.model.RaceResult;
 import com.example.backend.model.Schedule;
 import com.example.backend.model.Team;
 import com.example.backend.model.Track;
+import com.example.backend.model.User;
 import com.example.backend.repository.DriverRepository;
 import com.example.backend.repository.FastestLapRepository;
 import com.example.backend.repository.RaceRepository;
@@ -14,6 +15,8 @@ import com.example.backend.repository.RaceResultRepository;
 import com.example.backend.repository.ScheduleRepository;
 import com.example.backend.repository.TeamRepository;
 import com.example.backend.repository.TrackRepository;
+import com.example.backend.repository.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -47,6 +50,9 @@ public class Maincontroller {
 
     @Autowired
     private FastestLapRepository fastestLapRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @GetMapping("/login")
     public String log() {
@@ -94,5 +100,10 @@ public class Maincontroller {
     @GetMapping("/fastest-laps")
     public List<FastestLap> getAllFastestLaps() {
         return fastestLapRepository.findAll();
+    }
+
+    @GetMapping("/users")
+    public List<User> getAllUsers(){
+        return userRepository.findAll();
     }
 }
