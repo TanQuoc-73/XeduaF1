@@ -4,20 +4,29 @@
 import { useState } from "react";
 
 export default function AuthModal({ isOpen, onClose }) {
-  const [isLogin, setIsLogin] = useState(true);
 
+  const [isLogin, setIsLogin] = useState(true);
   if (!isOpen) return null;
+
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
       <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
-        <h2 className="text-2xl font-bold mb-4 text-gray-800">
-          {isLogin ? "Đăng nhập" : "Đăng ký"}
-        </h2>
+        <div className="flex space-x-75">
+            <h2 className="text-2xl font-bold mb-4 text-black w-200" >
+                {isLogin ? "Đăng nhập" : "Đăng ký"}
+            </h2>
+            <button
+                onClick={onClose}
+                className="ml-10mt-2 text-black hover:text-black cursor:pointer"> 
+                 X
+            </button>
+        </div>
+        
         <form>
           {!isLogin && (
             <div className="mb-4">
-              <label className="block text-gray-700 font-semibold mb-2">
+              <label className="block text-black font-semibold mb-2">
                 Họ và tên
               </label>
               <input
@@ -28,7 +37,7 @@ export default function AuthModal({ isOpen, onClose }) {
             </div>
           )}
           <div className="mb-4">
-            <label className="block text-gray-700 font-semibold mb-2">
+            <label className="block text-black font-semibold mb-2">
               Email
             </label>
             <input
@@ -38,7 +47,7 @@ export default function AuthModal({ isOpen, onClose }) {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 font-semibold mb-2">
+            <label className="block text-black font-semibold mb-2">
               Mật khẩu
             </label>
             <input
@@ -60,12 +69,7 @@ export default function AuthModal({ isOpen, onClose }) {
         >
           {isLogin ? "Chưa có tài khoản? Đăng ký" : "Đã có tài khoản? Đăng nhập"}
         </button>
-        <button
-          onClick={onClose}
-          className="mt-2 text-gray-600 hover:text-gray-800"
-        >
-          Đóng
-        </button>
+        
       </div>
     </div>
   );
