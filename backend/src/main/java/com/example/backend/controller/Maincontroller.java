@@ -1,34 +1,19 @@
 package com.example.backend.controller;
 
-import com.example.backend.model.Driver;
-import com.example.backend.model.FastestLap;
-import com.example.backend.model.Race;
-import com.example.backend.model.RaceResult;
-import com.example.backend.model.Schedule;
-import com.example.backend.model.Team;
-import com.example.backend.model.Track;
-import com.example.backend.model.User;
-import com.example.backend.repository.DriverRepository;
-import com.example.backend.repository.FastestLapRepository;
-import com.example.backend.repository.RaceRepository;
-import com.example.backend.repository.RaceResultRepository;
-import com.example.backend.repository.ScheduleRepository;
-import com.example.backend.repository.TeamRepository;
-import com.example.backend.repository.TrackRepository;
-import com.example.backend.repository.UserRepository;
-
+import com.example.backend.model.*;
+import com.example.backend.repository.*;
+import com.example.backend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "http://localhost:3000") // Cho phép Next.js truy cập
-public class Maincontroller {
+@CrossOrigin(origins = "http://localhost:3000")
+public class MainController {
 
     @Autowired
     private TeamRepository teamRepository;
@@ -54,19 +39,27 @@ public class Maincontroller {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private UserService userService;
+
     @GetMapping("/")
     public String home() {
         return "Welcome to F1 API!";
     }
 
-    @GetMapping("/login")
-    public String log() {
-        return "Xin chào API Login";
+    @PostMapping("/auth/register")
+    public ResponseEntity<?> register(@RequestBody User user) {
+        try {
+            User registeredUser = userService.registerUser(user);
+            return ResponseEntity.ok("Đăng ký thành công: " + registeredUser.getUserName());
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
     }
 
-    @GetMapping("/register")
-    public String register() {
-        return "Xin chào API Register";
+    @PostMapping("/auth/login")
+    public ResponseEntity<?> login() {
+        return ResponseEntity.ok("API Login - Chưa triển khai");
     }
 
     @GetMapping("/teams")
@@ -74,7 +67,6 @@ public class Maincontroller {
         List<Team> teams = teamRepository.findAll();
         System.out.println("Teams fetched: " + teams);
         return teams;
-    
     }
 
     @GetMapping("/drivers")
@@ -108,7 +100,7 @@ public class Maincontroller {
     }
 
     @GetMapping("/users")
-    public List<User> getAllUsers(){
+    public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 }
