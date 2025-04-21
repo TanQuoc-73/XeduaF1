@@ -54,6 +54,11 @@ public class Maincontroller {
     @Autowired
     private UserRepository userRepository;
 
+    @GetMapping("/")
+    public String home() {
+        return "Welcome to F1 API!";
+    }
+
     @GetMapping("/login")
     public String log() {
         return "Xin chào API Login";
